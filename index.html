@@ -12,7 +12,7 @@
         <button class="new-book-button js-new-book-button">New Book</button>
     </div>
     <div class="popup js-popup">
-        <form class='popup-form js-popup-form'>
+        <form id='popup-form' class='popup-form js-popup-form'>
             <span class="close-popup js-close-popup">&times;</span>
             <ledgend>New Book</ledgend>
             <div id='text-input'> 
@@ -23,9 +23,10 @@
             <div id='checkBox'>
                 <p><label >Read: </label><input type='checkbox' id='read-status' name='read' value='yes'></p>
             </div>
-            <button type='submit' form='form' class='add-book-button js-add-book-button'>Add</button>
+            <button type='submit' form='popup-form' class='add-book-button js-add-book-button'>Add</button>
         </form>
     </div>
+    <div class="container"></div>
     <script src="js/main.js"></script>
 </body>
 </html>

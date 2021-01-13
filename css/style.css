@@ -18,13 +18,23 @@ body {
   align-items: center;
 }
 
-#navbar .js-new-book-button {
+.js-new-book-button {
     margin-left: auto;
     order: 2;
     margin-right: 15px;
     height: 50px;
-    background-color: coral;
-    border: none;
+    background-color: #dd7777;
+    border-radius: 10px;
+    border: solid black;
+    border-width: 3px;
+    font-size: 1.5em;
+    font-family: 'Open Sans';
+    cursor: pointer;
+    transition: all .5s ease-out;
+}
+
+.js-new-book-button:hover {
+    background-color: #77dd77;
 }
 
 #navbar h1 {
@@ -46,9 +56,41 @@ body {
 
 .popup-form {
     margin: auto;
-    width: 200px;
-    height: 225px;
+    width: 300px;
+    height: 300px;
+    background-color: #eee;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+input {
+    border-radius: 10px;
+    border: solid black;
+    border-width: 1px;
+    font-size: 1.1em;
+    padding-left: 5px;
+}
+
+.popup-form .text-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-form button {
+    border-radius: 10px;
+    font-size: 1.1em;
+    border: solid black;
+    border-width: 1px;
+    cursor: pointer;
+}
+
 
 .close-popup {
     color: #aaaaaa;
@@ -64,3 +106,39 @@ body {
   cursor: pointer;
 }
 
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-container {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid black;
+    border-width: 5px;
+    border-radius: 30px;
+    width: 20%;
+    background-color: #7CAA98;
+}
+
+.book-container div {
+    font-size: 1.3em;
+}
+
+.book-container button {
+    font-size: 1.3em;
+    margin: 5px; 
+    border-radius: 10px;
+    cursor: pointer;
+    border: solid black;
+    border-width: 2px
+}
+.book-container .remove-button {
+    background-color: #C8D6B9;
+;
+}
