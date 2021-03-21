@@ -115,10 +115,14 @@ function populateContainer() {
 
 
 function retrieveLibrary () {
-    let books = localStorage.getItem('myLibrary');
-    books = JSON.parse(books);
-    myLibrary = books;
-    populateContainer();
+    if(!localStorage.myLibrary) {
+        populateContainer();
+    } else {
+        let books = localStorage.getItem('myLibrary');
+        books = JSON.parse(books);
+        myLibrary = books;
+        populateContainer();
+    };
 };
 
 retrieveLibrary();
