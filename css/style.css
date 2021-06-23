@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
 
 body {
-    padding-top: 90px;
-    font-family: 'Open Sans', sans-serif;
+  padding-top: 90px;
+  font-family: "Open Sans", sans-serif;
 }
 
 #navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #393e41;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,87 +17,90 @@ body {
   font-size: 16px;
   display: flex;
   align-items: center;
-}
-
-.js-new-book-button {
-    margin-left: auto;
-    order: 2;
-    margin-right: 15px;
-    height: 50px;
-    background-color: #dd7777;
-    border-radius: 10px;
-    border: solid black;
-    border-width: 3px;
-    font-size: 1.5em;
-    font-family: 'Open Sans';
-    cursor: pointer;
-    transition: all .5s ease-out;
-}
-
-.js-new-book-button:hover {
-    background-color: #77dd77;
+  box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 #navbar h1 {
-    margin-left: 15px;
+  margin-left: 15px;
 }
+
+.js-new-book-button {
+  margin-left: auto;
+  order: 2;
+  margin-right: 15px;
+  height: 50px;
+  background-color: #e94f37;
+  border-radius: 10px;
+  border: 3px solid black;
+  font-size: 1.5em;
+  font-family: "Open Sans";
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.js-new-book-button:hover {
+  background-color: #44bba4;
+}
+
 .popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px #000;
 }
 
 .popup-form {
-    margin: auto;
-    width: 300px;
-    height: 300px;
-    background-color: #eee;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin: auto;
+  width: 300px;
+  height: 400px;
+  background-color: #f6f7eb;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }
 
-input {
-    border-radius: 10px;
-    border: solid black;
-    border-width: 1px;
-    font-size: 1.1em;
-    padding-left: 5px;
+.text-input {
+  border-radius: 20px;
+  border: 1px solid black;
+  padding-left: 5px;
+  height: 30px;
+  width: 200px;
 }
 
 .popup-form .text-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .popup-form button {
-    border-radius: 10px;
-    font-size: 1.1em;
-    border: solid black;
-    border-width: 1px;
-    cursor: pointer;
+  border-radius: 10px;
+  border: solid black;
+  border-width: 1px;
+  cursor: pointer;
+  height: 30px;
 }
 
-
 .close-popup {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaaaaa;
+  float: right;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .close-popup:hover,
@@ -107,38 +111,43 @@ input {
 }
 
 .container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .book-container {
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid black;
-    border-width: 5px;
-    border-radius: 30px;
-    width: 20%;
-    background-color: #7CAA98;
+  margin: 5px;
+  padding: 5px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 20%;
+  background-color: #3f88c5;
 }
 
 .book-container div {
-    font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 .book-container button {
-    font-size: 1.3em;
-    margin: 5px; 
-    border-radius: 10px;
-    cursor: pointer;
-    border: solid black;
-    border-width: 2px
+  font-size: 1.3em;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: solid black;
+  border-width: 2px;
 }
 .book-container .remove-button {
-    background-color: #C8D6B9;
-;
+  background-color: #f2bb05;
+}
+
+#read-status {
+  height: 24px;
+  width: 24px;
 }
