@@ -1,66 +1,74 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body {
-  padding-top: 90px;
-  font-family: "Open Sans", sans-serif;
+  padding-top: 5.625rem;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 #navbar {
   overflow: hidden;
-  background-color: #393e41;
+  background-color: #23405e;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 5rem;
   color: #eee;
-  font-size: 16px;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
-  box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
 }
 
 #navbar h1 {
-  margin-left: 15px;
+  margin-left: 0.9375rem;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .js-new-book-button {
   margin-left: auto;
   order: 2;
-  margin-right: 15px;
-  height: 50px;
-  background-color: #e94f37;
-  border-radius: 10px;
-  border: 3px solid black;
-  font-size: 1.5em;
-  font-family: "Open Sans";
+  margin-right: 0.9375rem;
+  background-color: #f76c6c;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border-style: none;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.5s ease-out;
 }
 
+button {
+  font-family: "Lato", sans-serif;
+}
+
 .js-new-book-button:hover {
-  background-color: #44bba4;
+  background-color: #DE5353;
 }
 
 .popup {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 6.25rem;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  box-shadow: 10px 10px #000;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0.625rem 0.625rem #000;
 }
 
 .popup-form {
   margin: auto;
-  width: 300px;
-  height: 400px;
-  background-color: #f6f7eb;
+  width: 18.75rem;
+  height: 25rem;
+  background-color: #374785;
+  color: #fff;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -69,17 +77,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.1em;
-  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  font-size: 1.1rem;
+  box-shadow: 0.125rem 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
 }
 
 .text-input {
-  border-radius: 20px;
-  border: 1px solid black;
-  padding-left: 5px;
-  height: 30px;
-  width: 200px;
+  border-radius: 1rem;
+  border: 0.0625rem solid black;
+  padding-left: 0.3125rem;
+  height: 1.875rem;
+  width: 12.5rem;
 }
 
 .popup-form .text-input {
@@ -89,17 +97,17 @@ body {
 }
 
 .popup-form button {
-  border-radius: 10px;
+  border-radius: 0.5rem;
   border: solid black;
-  border-width: 1px;
+  border-width: 0.0625rem;
   cursor: pointer;
-  height: 30px;
+  height: 1.875rem;
 }
 
 .close-popup {
   color: #aaaaaa;
   float: right;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -120,34 +128,47 @@ body {
 }
 
 .book-container {
-  margin: 5px;
-  padding: 5px 0px;
+  margin: 1rem;
+  padding: 0.3125rem 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid black;
-  border-radius: 20px;
+  border: 0.125rem solid black;
+  border-radius: 1rem;
   width: 20%;
-  background-color: #3f88c5;
+  background-color: #a8d0e6;
 }
 
 .book-container div {
-  font-size: 1.3em;
+  font-size: 1.3rem;
 }
 
 .book-container button {
-  font-size: 1.3em;
-  margin: 5px;
-  border-radius: 10px;
+  font-size: 1.1rem;
+  margin: 0.3125rem;
+  border-radius: 1rem;
+  width: 6.25rem;
+  height: 2rem;
   cursor: pointer;
-  border: solid black;
-  border-width: 2px;
+  border: 0.125rem solid black;
 }
 .book-container .remove-button {
-  background-color: #f2bb05;
+  background-color: #bbbbff;
 }
 
 #read-status {
-  height: 24px;
-  width: 24px;
+  height: 1.5rem;
+  width: 1.5rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .book-container {
+    width: 40%;
+  }
+ }
+
+ @media only screen and (max-width: 480px) {
+  .book-container {
+    width: 75%;
+  }
+ }

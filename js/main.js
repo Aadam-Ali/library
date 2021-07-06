@@ -81,10 +81,10 @@ function createBook(e) {
 
   if (e.readStatus === false) {
     readBtn.textContent = "Not Read";
-    readBtn.style.backgroundColor = "#E94F37";
+    readBtn.style.backgroundColor = "#f76c6c";
   } else {
     readBtn.textContent = "Read";
-    readBtn.style.backgroundColor = "#44BBA4";
+    readBtn.style.backgroundColor = "#53DE53";
   }
 
   removeBtn.textContent = "Remove";
