@@ -1,32 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Library</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="navbar">
-        <h1>Library.</h1>
-        <button class="new-book-button js-new-book-button">New Book</button>
+      <h1>Library.</h1>
+      <button class="new-book-button js-new-book-button">New Book</button>
     </div>
     <div class="popup js-popup">
-        <form id='popup-form' class='popup-form js-popup-form'>
-            <span class="close-popup js-close-popup">&times;</span>
-            <ledgend>New Book</ledgend>
-            <div id='inputs'> 
-                <p><input type='text' id='title' class="text-input" name='title' placeholder='Title' required></p>
-                <p><input type='text' id='author' class="text-input" name='author' placeholder='Author' required></p>
-                <p><input type='text' id='pages' class="text-input"name='pages' placeholder='Pages' required></p>
-            </div>
-            <div id='checkBox'>
-                <p><label >Read: </label><input type='checkbox' id='read-status' name='read' value='yes'></p>
-            </div>
-            <button type='submit' form='popup-form' class='add-book-button js-add-book-button'>Add</button>
-        </form>
+      <form id="popup-form" class="popup-form js-popup-form">
+        <span class="close-popup js-close-popup">&times;</span>
+        <ledgend>New Book</ledgend>
+        <div id="inputs">
+          <p>
+            <input
+              type="text"
+              autocomplete="off"
+              id="title"
+              class="text-input"
+              name="title"
+              placeholder="Title"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              autocomplete="off"
+              id="author"
+              class="text-input"
+              name="author"
+              placeholder="Author"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              autocomplete="off"
+              id="pages"
+              class="text-input"
+              name="pages"
+              placeholder="Pages"
+              required
+            />
+          </p>
+        </div>
+        <div id="checkBox">
+          <p>
+            <label>Read: </label
+            ><input type="checkbox" id="read-status" name="read" value="yes" />
+          </p>
+        </div>
+        <button
+          type="submit"
+          form="popup-form"
+          class="add-book-button js-add-book-button"
+        >
+          Add
+        </button>
+      </form>
     </div>
     <div class="container"></div>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

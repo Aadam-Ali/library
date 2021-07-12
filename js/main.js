@@ -1,12 +1,5 @@
 let myLibrary = [];
 
-// function book(author, title, pages, readStatus) {
-//     this.author = author;
-//     this.title = title;
-//     this.pages = pages;
-//     this.readStatus = readStatus;
-// };
-
 class Book {
   constructor(author, title, pages, readStatus) {
     this.author = author;
@@ -16,27 +9,23 @@ class Book {
   }
 }
 
-const newBookBtn = document.querySelector(".js-new-book-button");
-newBookBtn.addEventListener("click", openPopup);
-
-const addBookBtn = document.querySelector(".js-add-book-button");
-addBookBtn.addEventListener("click", addBook);
-
-const popupForm = document.querySelector(".js-popup");
-popupForm.style.display = "none";
-
-const closePopupBtn = document.querySelector(".js-close-popup");
-closePopupBtn.addEventListener("click", closePopup);
+$(".js-new-book-button").click(openPopup)
+$(".js-close-popup").click(closePopup)
+$(".js-add-book-button").click(addBook)
 
 function openPopup() {
-  popupForm.style.display = "block";
+  $(".js-popup").css("display", "block");
+}
+
+function closePopup() {
+  $(".js-popup").css("display", "none");
 }
 
 function addBook() {
-  title = document.getElementById("title").value;
-  author = document.getElementById("author").value;
-  pages = document.getElementById("pages").value;
-  readStatus = document.getElementById("read-status").checked;
+  let title = $("#title").val();
+  let author = $("#author").val();
+  let pages = $("#pages").val();
+  let readStatus = $("#read-status").is(":checked")
 
   if (title == "" || author == "" || pages == "") {
     return;
@@ -45,87 +34,67 @@ function addBook() {
   let newBook = new Book(title, author, pages, readStatus);
   myLibrary.push(newBook);
   storeLibrary();
-  populateContainer();
+  renderPage();
+}
+
+function deleteBook() {
+  console.log($(this).attr("id").replace("remove", ""))
+  myLibrary.splice(myLibrary[$(this).attr("id").replace("remove", "")], 1);
+  storeLibrary();
+  renderPage();
+}
+
+function readBook() {
+  console.log($(this).attr("id").replace("read", ""))
+  myLibrary[$(this).attr("id").replace("read", "")].readStatus = !myLibrary[$(this).attr("id").replace("read", "")].readStatus
+  storeLibrary();
+  renderPage();
 }
 
 function storeLibrary() {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
-function createBook(e) {
-  const container = document.querySelector(".container");
-  const bookContainer = document.createElement("div");
-  const titleDiv = document.createElement("div");
-  const authorDiv = document.createElement("div");
-  const pagesDiv = document.createElement("div");
-  const removeBtn = document.createElement("button");
-  const readBtn = document.createElement("button");
+function createBook(book) {
+  const bookContainer = $(`<div id='${myLibrary.indexOf(book)}'class='book-container'></div>`)
+  const readBtn = $(`<button id='read${myLibrary.indexOf(book)}' class='read-button'></button>`)
 
-  bookContainer.classList.add("book-container");
-  bookContainer.setAttribute("id", myLibrary.indexOf(e));
+  $(`<div class="title">${book.title}</div>`).appendTo(bookContainer)
+  $(`<div class="title">${book.author}</div>`).appendTo(bookContainer)
+  $(`<div class="title">${book.pages}</div>`).appendTo(bookContainer)
 
-  titleDiv.textContent = e.title;
-  titleDiv.classList.add("title");
-  bookContainer.appendChild(titleDiv);
-
-  authorDiv.textContent = e.author;
-  authorDiv.classList.add("author");
-  bookContainer.appendChild(authorDiv);
-
-  pagesDiv.textContent = e.pages;
-  pagesDiv.classList.add("pages");
-  bookContainer.appendChild(pagesDiv);
-
-  readBtn.classList.add("read-button");
-  bookContainer.appendChild(readBtn);
-
-  if (e.readStatus === false) {
-    readBtn.textContent = "Not Read";
-    readBtn.style.backgroundColor = "#f76c6c";
+  if (book.readStatus === false) {
+    readBtn.text("Not Read");
+    readBtn.css("background-color", "#f76c6c")
   } else {
-    readBtn.textContent = "Read";
-    readBtn.style.backgroundColor = "#53DE53";
+    readBtn.text("Read");
+    readBtn.css("background-color", "#53DE53")
   }
 
-  removeBtn.textContent = "Remove";
-  removeBtn.classList.add("remove-button");
-  bookContainer.appendChild(removeBtn);
+  readBtn.appendTo(bookContainer)
+  $(`<button id='remove${myLibrary.indexOf(book)}' class='remove-button'>Remove</button>`).appendTo(bookContainer)
 
-  container.appendChild(bookContainer);
-
-  removeBtn.addEventListener("click", () => {
-    myLibrary.splice(myLibrary.indexOf(e), 1);
-    storeLibrary();
-    populateContainer();
-  });
-
-  readBtn.addEventListener("click", () => {
-    e.readStatus = !e.readStatus;
-    storeLibrary();
-    populateContainer();
-  });
+  $(bookContainer).appendTo(".container")
 }
 
-function closePopup() {
-  popupForm.style.display = "none";
-}
-
-function populateContainer() {
-  const container = document.querySelector(".container");
-  container.textContent = "";
+function renderPage() {
+  $(".container").text("")
   for (let i = 0; i < myLibrary.length; i++) {
     createBook(myLibrary[i]);
   }
+
+  $(".read-button").click(readBook)
+  $(".remove-button").click(deleteBook)
 }
 
 function retrieveLibrary() {
   if (!localStorage.myLibrary) {
-    populateContainer();
+    renderPage();
   } else {
     let books = localStorage.getItem("myLibrary");
     books = JSON.parse(books);
     myLibrary = books;
-    populateContainer();
+    renderPage();
   }
 }
 
