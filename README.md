@@ -19,3 +19,4 @@ No known bugs at this moment in time
 - HTML
 - CSS
 - JavaScript
+- jQuery
